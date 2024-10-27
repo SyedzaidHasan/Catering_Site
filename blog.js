@@ -32,7 +32,7 @@
         const { title,post_content,imageUrl} = data[key]
 
         html+=`
-      <div class="card-container">
+      
         <div class="card">
         <div class="card-img">
                 <td>${imageUrl ? `<img src="${imageUrl}" alt="Image" style="width: 100px; height: 100px;" />` : 'No image'}</td>
@@ -44,7 +44,7 @@
             <button class="add-to-cart-btn" onclick="addToCart('${title}', ${parseFloat(post_content)})">Add to Cart</button>
             </div>
         </div>
-    </div>`
+    `
 
         }
         

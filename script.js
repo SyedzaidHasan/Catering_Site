@@ -64,6 +64,8 @@ function signinuser() {
   const password = document.getElementById('password').value;
   signInWithEmailAndPassword(auth, email, password).then((usercredinals) => {
     console.log(usercredinals.user.uid);
+  }).catch((error)=>{
+    alert(error)
   });
 }
 
