@@ -20,7 +20,7 @@ body{
   padding: 1vh; */
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   height: 600px;
   /* overflow: hidden;  */
    /* margin: 100vh; */
@@ -567,11 +567,11 @@ div ul li a.active{
   align-items: center;
   justify-content: center;
   }
-  .yourorder{
+  /* .yourorder{
 
     align-items: center;
     justify-content: center;
-  }
+  } */
 }
 @media  (max-width: 1152px){
   .container1{
@@ -592,6 +592,8 @@ div ul li a.active{
     width: auto;
   }
   .yourorder{
+    background-image: url("/assets/food-bg.jpg");
+
     align-items: center;
     justify-content: center;
   }
@@ -908,10 +910,8 @@ align-items: center;
       text-align: center;
       padding: 10px;
     }
-    .yourorder{
-      background-image: url("/assets/food-bg.jpg");
-    }
+  
     .yourorder h2{
-      color: white;
-      
+      /* color: white; */
+
     }
