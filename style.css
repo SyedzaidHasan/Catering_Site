@@ -911,11 +911,11 @@ align-items: center;
       padding: 10px;
     }
   
-    .yourorder{
+    /* .yourorder{
       background-image: url("/assets/food-bg.jpg");
 
-    }
+    } */
 
     .yourorder h2{
-      color: white;
+      color: black;
     }
