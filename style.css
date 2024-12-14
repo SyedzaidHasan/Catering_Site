@@ -919,3 +919,26 @@ align-items: center;
     .yourorder h2{
       color: black;
     }
+    button {
+      padding: 10px 15px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+    
+    .update_btn {
+      background-color: #28a745;
+    }
+    
+    .update_btn:hover {
+      background-color: #218838;
+    }
+    
