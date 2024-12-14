@@ -12,7 +12,7 @@ body{
 .body {
   background:url("./assets/food-bg.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  /* background-size: 100%; */
   color: #fff;
   font-family: 'Muli', sans-serif;
   display: flex;
@@ -74,7 +74,7 @@ body{
 
 .login {
   position: relative;
-  margin: 20px 0 40px;
+  margin: 150px 0 40px;
   width: 300px;
 }
 
@@ -567,11 +567,11 @@ div ul li a.active{
   align-items: center;
   justify-content: center;
   }
-  /* .yourorder{
+  .yourorder{
 
     align-items: center;
     justify-content: center;
-  } */
+  }
 }
 @media  (max-width: 1152px){
   .container1{
@@ -592,7 +592,7 @@ div ul li a.active{
     width: auto;
   }
   .yourorder{
-    background-image: url("/assets/food-bg.jpg");
+    /* background-image: url("assets/food-bg.jpg"); */
 
     align-items: center;
     justify-content: center;
@@ -911,7 +911,11 @@ align-items: center;
       padding: 10px;
     }
   
-    .yourorder h2{
-      /* color: white; */
+    .yourorder{
+      background-image: url("/assets/food-bg.jpg");
 
+    }
+
+    .yourorder h2{
+      color: white;
     }
