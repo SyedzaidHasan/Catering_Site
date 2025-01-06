@@ -108,7 +108,40 @@ function updateTotalPrice() {
 
 // jhbajh
 
-  document.getElementById('place-order-btn').addEventListener('click', placeOrder);
+//   document.getElementById('place-order-btn').addEventListener('click', placeOrder);
+
+// function placeOrder() {
+//   if (cart.length === 0) {
+//     alert('Your cart is empty!');
+//     return;
+//   }
+
+
+
+//   const orderNumber = Math.floor(Math.random() * 10000); // Generate a random order number
+//   const order = {
+//     orderNumber,
+//     items:cart,
+//     totalPrice
+//   };
+//   console.log('Placing order:', order); // Log the order object
+
+
+//   set(ref(db, 'orders/' + orderNumber), order).then(() => {
+//     alert('Order placed successfully! scroll down to see your order');
+//     cart = [];
+//     totalPrice = 0;
+//     document.getElementById('cart-items').innerHTML = '';
+//     document.getElementById('total-price').textContent = 'Total: Rs0.00';
+//     displayCurrentOrder(orderNumber);
+    
+
+//   }).catch((error) => {
+//     console.error('Error placing order:', error);
+//   });
+// }
+
+document.getElementById('place-order-btn').addEventListener('click', placeOrder);
 
 function placeOrder() {
   if (cart.length === 0) {
@@ -116,30 +149,38 @@ function placeOrder() {
     return;
   }
 
+  const ordersRef = ref(db, 'orders/');
+  
+  get(ordersRef).then((snapshot) => {
+    let orderNumber = 1; // Default order number if no orders exist
+    if (snapshot.exists()) {
+      const orders = snapshot.val();
+      const orderNumbers = Object.keys(orders).map(Number);
+      orderNumber = Math.max(...orderNumbers) + 1; // Increment the highest order number
+    }
 
+    const order = {
+      orderNumber,
+      items: cart,
+      totalPrice
+    };
 
-  const orderNumber = Math.floor(Math.random() * 10000); // Generate a random order number
-  const order = {
-    orderNumber,
-    items:cart,
-    totalPrice
-  };
-  console.log('Placing order:', order); // Log the order object
-
-
-  set(ref(db, 'orders/' + orderNumber), order).then(() => {
-    alert('Order placed successfully! scroll down to see your order');
-    cart = [];
-    totalPrice = 0;
-    document.getElementById('cart-items').innerHTML = '';
-    document.getElementById('total-price').textContent = 'Total: Rs0.00';
-    displayCurrentOrder(orderNumber);
-    
+    set(ref(db, 'orders/' + orderNumber), order).then(() => {
+      alert('Order placed successfully! Scroll down to see your order');
+      cart = [];
+      totalPrice = 0;
+      document.getElementById('cart-items').innerHTML = '';
+      document.getElementById('total-price').textContent = 'Total: Rs0.00';
+      displayCurrentOrder(orderNumber);
+    }).catch((error) => {
+      console.error('Error placing order:', error);
+    });
 
   }).catch((error) => {
-    console.error('Error placing order:', error);
+    console.error('Error fetching orders:', error);
   });
 }
+
 
 
 function displayCurrentOrder(orderNumber) {
